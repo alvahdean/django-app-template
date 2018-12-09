@@ -1,4 +1,4 @@
-"""apile URL Configuration
+"""Application URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -16,8 +16,8 @@ Including another URLconf
 from django.urls import path, include
 from django.contrib import admin
 from django.views.generic import TemplateView
-from collection import views
-from collection.backends import MyRegistrationView
+from myapp import views
+from common.backends import MyRegistrationView
 from django.contrib.auth.views import (
     PasswordResetView,
     PasswordResetDoneView,
