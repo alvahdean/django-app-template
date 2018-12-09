@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from collection.forms import PostForm
+from django.shortcuts import render, redirect, render_to_response, get_object_or_404
+from myapp.forms import PostForm
 from django.views.decorators.http import require_POST
 from django.utils import timezone
 #from django.contrib.auth.views import login_required
-from collection.models import Post, Comment, Vote
+from myapp.models import Post, Comment, Vote
 from django.db.models import Count
 from django.template.defaultfilters import slugify
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -152,7 +152,7 @@ def edit_post(request, postid):
 #     favorite_posts = request.user.favorite_posts.all()
 # posts = posts.order_by('-created_at')
 # return render(
-#     request, "collection/index.html", {
+#     request, "app/index.html", {
 #         "title": title,
 #         "link": link,
 #         "description": description

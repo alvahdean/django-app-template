@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.management.base import BaseCommand, CommandError
 from django.utils import timezone
-from collection.models import Post, Comment, Vote
+from myapp.models import Post, Comment, Vote
 from django.db.models import Count
 from faker import Faker
 from django.contrib.auth.models import User
