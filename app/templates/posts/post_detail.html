@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ post.title }} - {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    {% if user == post.author %}
+    <p><a href="{% url 'edit_post' postid=post.pk %}">Edit</a><p/>
+    {% elif is_voted %}
+    <p><b>You have voted for this post!</b></p>
+    {% else %}
+    <p><a href="{% url 'vote_post' postid=post.pk %}">Vote this post!</a></p>
+    {% endif %}
+{% endif %}
+
+<h1>{{ post.title }}</h1>
+    <b>Author:</b> {{ post.author}}<p/> 
+    <b>Votes:</b> {{vote_count}}<p/> 
+    <b>Created:</b> {{post.created_date}}<p/>
+    <b>Last Update:</b> {{post.published_date}}</p>
+    {% if post.link %}
+    <b>Link: </b><a href"{{ post.link }}">{{ post.title }}</a><p/>
+    {% endif %}
+    {{ post.text }}</p>
+<hr/>
+<h4>Comments</h4>
+{% if comments %}
+    {% for comment in comments %}
+        {{ comment.author.username }} on {{ comment.created_date }}<p/>
+        {{ comment.contents }}
+        <hr/>
+    {% endfor %}
+{% endif %}
+
+{% if user.is_authenticated %}
+<b>Add a comment</b><p/>
+TODO: Put a form here<p/>
+--------------------------------------------------------------------------<p/>
+<p/>
+<p/>
+--------------------------------------------------------------------------<p/>
+[Post Comment Button]<p/>
+{% endif %}
+
+{% endblock content %}
