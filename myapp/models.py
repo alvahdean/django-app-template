@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-from random import randint
 from django.db.models import Count
+from random import randint
 
 # Models
 # The focus of the application is the concept of "posts". Posts are what users add, vote on, and comment on. 
@@ -16,9 +16,6 @@ from django.db.models import Count
 class Timestamp(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
-
-
-# New Class
 
 class Post(models.Model):
     title = models.CharField(max_length=255, null=True)

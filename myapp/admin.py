@@ -1,7 +1,5 @@
 from django.contrib import admin
-from collection.models import Post
-from collection.models import Comment
-from collection.models import Vote
+from myapp.models import Post, Vote, Comment
 # from django.contrib.auth.models import User
 
 
